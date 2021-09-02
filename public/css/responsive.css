@@ -1,0 +1,115 @@
+
+@media screen and (max-width: 1024px) {
+
+	
+
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .sec-head {
+        width: 100%;
+    }
+
+    .banner .banner-text {
+        width: 80%;
+    }
+
+    .banner .banner-text h2 {
+        font-size: 32px;
+    }
+    
+    
+
+}
+
+
+
+@media screen and (max-width: 480px) { 
+    section.abt-images {
+        display: block;
+    }
+    
+    section.abt-images .abt-img-sing {
+        width: 100%;
+    }
+
+    section.all-ser .services-slider .ser-slider-wrap .ser-slider-text {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+    }
+
+    section.abt-images {
+        width: 100%;
+    }
+
+    section.abt-images::before {
+        display: none;
+    }
+
+    .associations .partner-logo ul li {
+        width: 50%; 
+    }
+
+    section.all-ser .all-ser-img ul li {
+        width: 100%; 
+    }
+
+    section.all-ser .services-slider {
+        margin-top: -60px;
+    }
+
+    .modal-dialog {
+        margin: auto;
+    }
+
+    .brake-text .icon {
+        display: none;
+    }
+
+    .service-contact .ser-con {
+        padding: 40px 40px 30px;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+
+    footer .ft-social {
+
+        text-align: center;
+    }
+
+    .quick-links {
+        margin: 40px 0;
+        text-align: center;
+    }
+    
+    .footer-contact {
+        text-align: center;
+    }
+
+    footer .footer-contact .location p {
+        margin: auto;
+    }
+
+    section.all-ser .services-slider .owl-dots {
+        left: 50%;
+        bottom: -20px;
+    }
+    
+
+}
+
+
+
+@media screen and (max-width: 375px) { 
+
+
+
+
+}
