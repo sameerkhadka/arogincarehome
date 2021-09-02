@@ -127,22 +127,24 @@
 
     <section class="banner">
         <div class="banner-slider owl-carousel">
+            @foreach($items as $item)
             <div class="item">
-                <img class="banner-bg" src="./images/banner2.jpg" alt="" >
+                <img class="banner-bg" src="{{voyager::image($item->image)}}" alt="{{$item->alt}}" >
                     <div class="overlay banner-overlay"></div>
 
                     <div class="container">
                         <div class="banner-text">
-                            <h2>Place where healing starts with <span>CARE & COMFORT</span></h2>
+                            {!!$item->title!!}
 
-                            <p>Established in 2016 to provide quality institutional care.</p>
+                            <p>{{$item->subtitle}}</p>
 
-                            <a class="main-btn" href="">Care Services </a>
+                            <a class="main-btn" href="{{$item->url ? $item->url : '#'}}">{{$item->button}}</a>
                         </div>
                     </div>
             </div>
+            @endforeach
 
-            <div class="item">
+            {{-- <div class="item">
                 <img class="banner-bg" src="./images/banner.JPG" alt="" >
                     <div class="overlay banner-overlay"></div>
 
@@ -155,7 +157,7 @@
                             <a class="main-btn" href="">About Us </a>
                         </div>
                     </div>
-            </div>
+            </div> --}}
         </div>
 
         

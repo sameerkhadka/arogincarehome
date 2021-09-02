@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CareServiceController;
 
+use App\Http\Controllers\SiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +16,11 @@ use App\Http\Controllers\CareServiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
+Route::GET('/', [SiteController::class,'index'])->name('index');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
