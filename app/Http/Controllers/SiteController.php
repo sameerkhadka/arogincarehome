@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Slider;
 
+use App\Homepage;
+
 class SiteController extends Controller
 {
     public function index()
     {
         $items = Slider::all();
-        return view('index', compact('items'));
+        $homepage = Homepage::where('id','1')->first();
+        return view('index', compact('items','homepage'));
     }
 }

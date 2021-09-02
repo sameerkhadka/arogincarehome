@@ -53,7 +53,7 @@
         <div class="navigation">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{route('index')}}">
                         <img src="./images/logo.png" alt="Arogin Home Care">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -159,7 +159,6 @@
                     </div>
             </div> --}}
         </div>
-
         
     </section>
 
@@ -167,35 +166,25 @@
         <div class="container">
 
             <div class="sec-head">
-                <p>Our Mission</p>
+                <p>{{$homepage->mission_title}}</p>
 
-                <h4>
-                    Give Service & Quality in a comfortable homely environment.
-                </h4>
+                {!!$homepage->mission_subtitle!!}
             </div>
 
             <section class="abt-images">
                 <div class="abt-img-sing">
-                    <img src="./images/Arogin_Care_Home_02.jpg" alt="">
+                    <img src="{{voyager::image($homepage->image1)}}" alt="{{$homepage->image1_alt}}">
 
                     <div class="abti-text">
-                        <h5>Care Services</h5>
-                        <p>
-                            The patients who need close monitoring by a skilled & qualified nursing care
-                            team around the clock will be facilitated with 24/7 Nursing care.
-                        </p>
+                        {!!$homepage->image1_text!!}
                     </div>
 
                 </div>
 
                 <div class="abt-img-sing">
-                    <img src="./images/Arogin_Care_Home_01.jpg" alt="">
+                    <img src="{{voyager::image($homepage->image2)}}" alt="{{$homepage->image2_alt}}">
                     <div class="abti-text">
-                        <h5>Physiotherapy Services</h5>
-                        <p>
-                            Arogin is here to help all the people in need with care for all kinds of support. We make sure that our
-                            customer condition improves with their well-being and quality of life.
-                        </p>
+                        {!!$homepage->image2_text!!}
                     </div>
 
                 </div>
@@ -212,9 +201,7 @@
             <div class="text">
 
                 <p>
-                    Arogin includes our experienced, 
-                    expert and friendly team that welcomes each patient 
-                    with a personalised care package
+                    {{$homepage->intro}}
                 </p>
 
                 <div class="icon">
@@ -230,33 +217,27 @@
     <section class="achiv">
         <div class="container">
             <div class="sec-head">
-                <p>Our Achivements</p>
+                <p>{{$homepage->achievement_title}}</p>
 
-                <h4>
-                    We provide different kinds of facilities so that you and your loved ones 
-                    don't need to suffer from any kind of problems.
-                </h4>
+                {!!$homepage->achievement_subtitle!!}
             </div>
 
             <div class="row">
                 <div class="col-md-4">
                     <div class="achv-sing">
-                        <h2>205+</h2>
-                        <p>Happy Clients</p>
+                        {!!$homepage->text1!!}
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="achv-sing">
-                        <h2>45+</h2>
-                        <p>Skilled Staff</p>
+                        {!!$homepage->text2!!}
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="achv-sing">
-                        <h2>5+</h2>
-                        <p>Associated Company</p>
+                        {!!$homepage->text3!!}
                     </div>
                 </div>
             </div>
@@ -268,17 +249,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="sec-head">
-                        <p>Our Team</p>
-        
-                        <h4>
-                            Our caretakers exhibit a genuine sense of empathy, utmost love.
-                        </h4>
-
-                        <span>
-                            Outstanding team and have been with us since beginning, skilled nurses, trained &amp; Certified caregivers. At
-                            arogin care home everyone feels that they are a part of arogin care home family. We give care and
-                            attention that patients deserves.
-                        </span>
+                        <p>{{$homepage->team_title}}</p>
+                        {!!$homepage->team_subtitle!!}
+                       <span> {{$homepage->team_description}}</span>
                     </div>
                 </div>
 
@@ -462,11 +435,9 @@
     <section class="events">
         <div class="container">
             <div class="sec-head">
-                <p>Events & Activities</p>
+                <p>{{$homepage->event_title}}</p>
 
-                <h4>
-                    Arogin care is connected together to smile, to share and create beautiful memories together    
-                </h4>
+                {!!$homepage->event_subtitle!!}
             </div>
 
             <div class="row">
@@ -754,7 +725,7 @@
             <div class="row align-item-center">
                 <div class="col-md-6">
                     <div class="faq-img">
-                        <img src="./images/faqimage.svg" alt="">
+                        <img src="{{voyager::image($homepage->faq_image)}}" alt="{{$homepage->faq_image_alt}}">
                     </div>
                 </div>
 

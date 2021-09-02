@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CareServiceController;
 
 use App\Http\Controllers\SiteController;
+
+use App\Http\Controllers\FaqController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::POST('/update', [CareServiceController::class,'update'])->name('care.update');
 
+    Route::GET('/homepage/faqs', [FaqController::class,'homepage'])->name('homepage.faq');
 });
+
+
