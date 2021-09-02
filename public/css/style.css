@@ -187,6 +187,10 @@ section.sto-top h4 {
   margin-bottom: 50px;
 }
 
+.care-img .sec-head {
+  margin-bottom: 50px;
+}
+
 .care-img .care-img-card {
   position: relative;
 }
@@ -263,6 +267,11 @@ section.sto-top h4 {
   margin-bottom: 50px;
 }
 
+.service-contact .sc-wrap iframe {
+  width: 100%;
+  height: 340px;
+}
+
 .service-contact .sc-wrap .sc-card {
   margin: 15px 0;
   display: -webkit-box;
@@ -294,6 +303,7 @@ section.sto-top h4 {
 
 .service-contact .sc-wrap .sc-card p {
   margin-bottom: 0;
+  font-size: 15px;
 }
 
 .service-contact .sc-wrap .sc-form {
@@ -614,6 +624,206 @@ section.sto-top h4 {
 
 .event-head {
   margin: 80px 0;
+}
+
+.general-faq {
+  padding: 40px 0;
+}
+
+.general-faq .faq-img img {
+  width: 100%;
+}
+
+.general-faq .accordion .card {
+  border: 0;
+  border-bottom: 1px solid #cacaca;
+}
+
+.general-faq .accordion .card .card-header {
+  padding: 20px 0;
+  background: transparent;
+}
+
+.general-faq .accordion .card .card-header button {
+  padding-left: 0;
+}
+
+.general-faq .accordion .card .card-body {
+  padding: 0;
+}
+
+.services-contact {
+  margin-top: 50px;
+  border: 1px solid #ebebeb;
+  background: #f6f6fa;
+}
+
+.services-contact h4.heading-bg {
+  background: #3b78af;
+  padding: 15px 20px;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.services-contact .qc-form {
+  margin: 15px 0;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.services-contact .qc-form input, .services-contact .qc-form textarea {
+  width: 100%;
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid #fff;
+}
+
+.services-contact .qc-form input:focus, .services-contact .qc-form textarea:focus {
+  outline: none;
+  border: 1px solid #8bbd40;
+}
+
+.services-contact .qc-form textarea {
+  height: 150px;
+}
+
+.services-contact .qc-form button {
+  background: #8bbd40;
+  color: #fff;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  border: 0;
+  font-size: 14px;
+  border-radius: 30px;
+  line-height: 1;
+}
+
+.services-contact .sc-card {
+  margin: 15px 0;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.services-contact .sc-card i {
+  color: #fff;
+  background: #8bbd40;
+  width: 35px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.services-contact .sc-card p {
+  margin-bottom: 0;
+}
+
+.blog-detail {
+  width: 50%;
+  margin: auto;
+}
+
+.blog-detail h4 {
+  width: 60%;
+  text-align: left;
+  margin: 50px 0;
+}
+
+.blog-detail .cover-image img {
+  width: 100%;
+}
+
+.blog-detail .blg-des {
+  margin: 40px 0;
+}
+
+.blog-detail .blg-des h1, .blog-detail .blg-des h2, .blog-detail .blg-des h3, .blog-detail .blg-des h4, .blog-detail .blg-des h5, .blog-detail .blg-des h6 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.event-detail {
+  padding: 40px 0;
+}
+
+.event-detail .event-img img {
+  width: 100%;
+}
+
+.event-detail .eve-date {
+  margin-top: 50px;
+}
+
+.event-detail .eve-date .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.event-detail .eve-date .date i {
+  font-size: 42px;
+  margin-right: 15px;
+  color: var(--blue);
+}
+
+.event-detail .eve-date .date span {
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.event-detail .eve-date .date span:nth-child(2) {
+  margin-bottom: 0;
+}
+
+.event-detail .full-desc {
+  margin-top: 40px;
+}
+
+.event-detail .full-desc h1, .event-detail .full-desc h2, .event-detail .full-desc h3, .event-detail .full-desc h4, .event-detail .full-desc h5, .event-detail .full-desc h6 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.sec-head h1, .sec-head h2, .sec-head h3, .sec-head h4, .sec-head h5, .sec-head h6 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+header {
+  border-bottom: 1px solid #d8d5d5;
 }
 
 header .top-header {
@@ -1141,7 +1351,7 @@ section.features .ft-sing h5 {
   margin-bottom: 15px;
   display: -webkit-box;
   max-width: 100%;
-  height: 84px;
+  height: 87px;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -1512,5 +1722,9 @@ section.brake-text .text .icon img {
 
 .testimonial-break .testimonial-slider .item .test-card h6 {
   font-size: 24px;
+}
+
+.eve-dis.for-blogs .evewrap-ft a::after {
+  bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */

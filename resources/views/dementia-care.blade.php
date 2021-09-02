@@ -161,6 +161,49 @@
                             <li><a href=""> Pharmacy <img src="./images/icon/star-blue.svg" alt=""></a></li>
                         </ul>
                     </div>
+
+                    <div class="services-contact">
+                        <h4 class="heading-bg">Contact Us</h4>
+
+                        <div class="sc-card">
+                            <i class="fas fa-phone"></i>
+                            <p>9801143425</p>
+                        </div>
+
+                        <div class="sc-card">
+                            <i class="far fa-envelope"></i>
+                            <p>info@arogincarehome.com</p>
+                        </div>
+
+                        <div class="sc-card">
+                            <i class="fab fa-whatsapp"></i>
+                            <p>9801143425</p>
+                        </div>
+                    </div>
+
+                    <div class="services-contact">
+                        <h4 class="heading-bg">Book Appointment</h4>
+
+                        <div class="qc-form">
+                            <input type="text" placeholder="Full Name">
+                        </div>
+
+                        <div class="qc-form">
+                            <input type="number" placeholder="Contact Number">
+                        </div>
+
+                        <div class="qc-form">
+                            <input type="email" placeholder="Email Address">
+                        </div>
+
+                        <div class="qc-form">
+                            <textarea name="" placeholder="Your Message" ></textarea>
+                        </div>
+
+                        <div class="qc-form">
+                            <button>Submit</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-8">
@@ -187,8 +230,16 @@
 
     <section class="care-img">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="sec-head">
+                <p>Gallery</p>
+
+                <h4>
+                    Featured Images    
+                </h4>
+            </div>
+
+            <div class="care-image-silder owl-carousel">
+                <div class="item">
                     <div class="care-img-card">
                         <a href="images/event2.jpg" data-lightbox="nursing-care">
                             <img src="images/event2.jpg" alt="">
@@ -198,7 +249,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="item">
                     <div class="care-img-card">
                         <a href="images/care-services1.jpg" data-lightbox="nursing-care">
                             <img src="images/care-services1.jpg" alt="">
@@ -208,7 +259,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="item">
                     <div class="care-img-card">
                         <a href="images/IMG-14ae1b68a4a15a5b061999f492f97399-V.jpg" data-lightbox="nursing-care">
                             <img src="images/IMG-14ae1b68a4a15a5b061999f492f97399-V.jpg" alt="">
@@ -217,7 +268,20 @@
                     
                     </div>
                 </div>
+
+                <div class="item">
+                    <div class="care-img-card">
+                        <a href="images/care-services1.jpg" data-lightbox="nursing-care">
+                            <img src="images/care-services1.jpg" alt="">
+                            <img src="images/modal.svg" alt="" class="md-btn">
+                        </a>   
+                    
+                    </div>
+                </div>
+
             </div>
+
+            
         </div>
     </section>
 
@@ -234,96 +298,7 @@
         </div>
     </section>
 
-    <section class="service-contact">
-        <div class="container">
-            <div class="ser-con" style="background-image: url(./images/1.jpg);">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="sc-wrap">
-                            <h4>For Support</h4>
-    
-                            <div class="sc-card">
-                                <i class="fas fa-phone"></i>
-                                <p>9801143425</p>
-                            </div>
-
-                            <div class="sc-card">
-                                <i class="far fa-envelope"></i>
-                                <p>info@arogincarehome.com</p>
-                            </div>
-                        </div>
-
-                        <div class="sc-wrap">
-                            <h4>Whatsapp </h4>
-    
-                            <div class="sc-card">
-                                <i class="fab fa-whatsapp"></i>
-                                <p>9801143425</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <div class="sc-wrap">
-                            <h4>Book an Appointment</h4>
-                            <p>We are happy to welcome you for your tour at arogin care 
-                                home facilities before making your decision.</p>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="sc-form">
-                                        <label >Full Name</label>
-                                        <input type="text">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="sc-form">
-                                        <label >Phone Number</label>
-                                        <input type="number">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="sc-form">
-                                        <label >Email Address</label>
-                                        <input type="email">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="sc-form">
-                                        <label >Address</label>
-                                        <input type="text">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="sc-form">
-                                        <label >Subject</label>
-                                        <input type="text">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="sc-form">
-                                        <label >Message</label>
-                                        <textarea name="" id="" ></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="sc-form">
-                                        <button>Send Message</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ 
 
     <footer>
         <div class="container">

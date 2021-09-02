@@ -182,6 +182,10 @@ section.sto-top {
 .care-img {
     margin-bottom: 50px;
 
+    .sec-head {
+        margin-bottom: 50px;
+    }
+
     .care-img-card {
         position: relative;
 
@@ -261,6 +265,11 @@ section.sto-top {
         color: #fff;
         margin-bottom: 50px;
 
+        iframe {
+            width: 100%;
+            height: 340px;
+        }
+
         .sc-card {
             margin: 15px 0;
             display: flex;
@@ -282,6 +291,7 @@ section.sto-top {
 
             p {
                 margin-bottom: 0;
+                font-size: 15px;
             }
         }
 
@@ -599,4 +609,190 @@ section.sto-top {
 
 .event-head {
     margin: 80px 0;
+}
+
+.general-faq {
+    padding: 40px 0;
+
+    .faq-img {
+        img {
+            width: 100%;
+        }
+    }
+
+    .accordion {
+        .card {
+            border: 0;
+            border-bottom: 1px solid #cacaca;
+
+            .card-header {
+                padding: 20px 0;
+                background: transparent;
+
+                button {
+                    padding-left: 0;
+                }
+
+            }
+
+            .card-body {
+                padding: 0;
+            }
+
+        }
+    }
+} 
+
+.services-contact {
+    margin-top: 50px;
+    border: 1px solid #ebebeb;
+    background: #f6f6fa;
+
+    h4.heading-bg {
+        background: #3b78af;
+        padding: 15px 20px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        font-weight: 400;
+    }
+
+    .qc-form {
+        margin: 15px 0;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: 100;
+        text-align: center;
+
+        input , textarea {
+            width: 100%;
+            display: block;
+            padding: 8px 10px;
+            border: 1px solid #fff;  
+            
+            &:focus {
+                outline: none;
+                border: 1px solid #8bbd40; 
+            }
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background: #8bbd40;
+            color: #fff;
+            padding: 15px 30px;
+            text-transform: uppercase;
+            border: 0;
+            font-size: 14px;
+            border-radius: 30px;
+            line-height: 1;
+        }
+    }
+
+    .sc-card {
+        margin: 15px 0;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+
+        i{
+            color: #fff;
+            background: #8bbd40;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+.blog-detail {
+    width: 50%;
+    margin: auto;
+    
+
+    h4 {
+        width: 60%;
+        text-align: left;
+        margin: 50px 0;
+    }
+
+    .cover-image {
+        img {
+            width: 100%;
+        }
+    }
+
+    .blg-des {
+        margin: 40px 0;
+
+        h1,h2,h3,h4,h5,h6 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+    }
+}
+
+.event-detail {
+    padding: 40px 0;
+
+    .event-img {
+        img {
+            width: 100%;
+        }
+    }
+
+    .eve-date {
+        margin-top: 50px;
+
+        .date {
+            display: flex;
+            align-items: center;
+
+            i {
+                font-size: 42px;
+                margin-right: 15px;
+                color: var(--blue);
+            }
+
+            span {
+                display: block;
+                margin-bottom: 5px;
+                line-height: 1.2;
+                font-weight: 300;
+                font-size: 14px;
+
+                &:nth-child(2) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .full-desc {
+        margin-top: 40px;
+
+        h1,h2,h3,h4,h5,h6 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 400;
+
+        }
+    } 
 }

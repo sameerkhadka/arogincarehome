@@ -353,9 +353,9 @@
             <div class="sec-head">
                 <p>Our Features</p>
 
-                <h4>
+                <h1>
                     We make sure that our patients/clients condition improves with their well-being and quality of life.
-                </h4>
+                </h1>
             </div>
 
             <div class="ft-wrap">
@@ -489,7 +489,7 @@
                                     
                                 </div>
 
-                                <a href="">Read More</a>
+                                <a href="event-detail.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -516,7 +516,7 @@
                                     
                                 </div>
 
-                                <a href="">Read More</a>
+                                <a href="event-detail.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -543,7 +543,7 @@
                                     
                                 </div>
 
-                                <a href="">Read More</a>
+                                <a href="event-detail.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -617,7 +617,7 @@
 
                             <div class="evewrap-ft">
                                 
-                                <a href="">Read More</a>
+                                <a href="blog-detail.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -652,7 +652,7 @@
                             <div class="evewrap-ft">
                               
 
-                                <a href="">Read More</a>
+                                <a href="blog-detail.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -689,6 +689,10 @@
                                 <i class="far fa-envelope"></i>
                                 <p>info@arogincarehome.com</p>
                             </div>
+                        </div>
+
+                        <div class="sc-wrap">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.7902562756212!2d85.33082471541569!3d27.72376153137651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb193aadb36ec7%3A0xde536b353406bcbc!2sArogin%20Care%20Home!5e0!3m2!1sen!2snp!4v1630471873164!5m2!1sen!2snp" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
 
                         
@@ -739,6 +743,108 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="faq general-faq">
+        <div class="container">
+            
+            <div class="row align-item-center">
+                <div class="col-md-6">
+                    <div class="faq-img">
+                        <img src="./images/faqimage.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="sec-head">
+                      
+                        <h4>
+                            FAQS 
+                        </h4>
+                    </div>
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                           
+                                    <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h3 class="faq-title">When Are Visiting Hours?</h3>
+                                    </button>
+                     
+                            </div>
+                      
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        We strive to accommodate the needs of family and friends of patients as much as possible and our visiting hours are also flexible .
+                                   
+        
+                                        We have no restrictions for visiting your loved ones at Arogin care home  as we believe that patients benefit from regular visits from friendly faces.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            
+                              <button class=" collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h1 class="faq-title">How Long Will I Need To Stay In care home?</h1>
+                              </button>
+                         
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                              <p>
+                                The length of stay varies and depends on the severity or on the basis of stroke assessment and rehabilitation it varies. The patient will be cared in the best surroundings and by a compassionate, highly trained team of professionals.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                              
+                                <button class=" collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  <h4 class="faq-title">How Long Will I Need To Stay In care home?</h4>
+                                </button>
+                           
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                              <div class="card-body">
+                                <p>
+                                  The length of stay varies and depends on the severity or on the basis of stroke assessment and rehabilitation it varies. The patient will be cared in the best surroundings and by a compassionate, highly trained team of professionals.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="card">
+                            <div class="card-header" id="headingFour">
+                              
+                                <button class=" collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                  <h6 class="faq-title">How Long Will I Need To Stay In care home?</h6>
+                                </button>
+                           
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                              <div class="card-body">
+                                <p>
+                                  The length of stay varies and depends on the severity or on the basis of stroke assessment and rehabilitation it varies. The patient will be cared in the best surroundings and by a compassionate, highly trained team of professionals.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                      
+        
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 

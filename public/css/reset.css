@@ -105,3 +105,8 @@ input::-webkit-inner-spin-button {
 button {
   cursor: pointer;
 }
+
+.faq-title {
+  font-size: 18px;
+  font-weight: 500;
+}

@@ -123,18 +123,46 @@
         </div>
     </header>
 
-    <section class="inner-banner" style="background: url(./images/tips.jpg);">
+    <!-- <section class="inner-banner" style="background: url(./images/tips.jpg);">
         <div class="container">
             <div class="breadcrumbs">
                 <ul>
                     <li><a href="">home</a></li>
                     <li><a href="">blogs</a></li>
                 </ul>
-                <h3>Blogs</h3>
+                <h3>Care of Covid Patient in Home Isolation
+                </h3>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="blog-detail">
+        <div class="container">
+            <h4>Care of Covid Patient in Home Isolation</h4>
+            
+            <div class="cover-image">
+                <img src="./images/blogs1.jpg" alt="">
+            </div>
+
+            <div class="blg-des">
+                <h6>Lorem Ipsum Title text </h6>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Et incidunt cumque quas libero facere nostrum quod nemo est,
+                      recusandae possimus, necessitatibus rerum sapiente illum 
+                      ipsum? Deleniti dolorum id vero sint, tenetur voluptas nemo
+                      , nostrum, at dolores distinctio culpa. Mollitia, aut. 
+                      Deserunt rerum ipsam odio laborum enim quis excepturi a
+                       iure, velit impedit nihil sit ut molestiae eligendi repellendus
+                        maxime architecto placeat tempora quaerat corrupti reprehenderit! 
+                        Optio saepe quis eveniet qui est perspiciatis aliquid non laborum 
+                        nostrum quia! Exercitationem velit ab, ipsam tempore id laudantium
+                         asperiores cupiditate quas quae provident quibusdam? Ad vero dignissimos 
+                         iste dolorum nihil ducimus nisi, incidunt ratione?
+                </p>
             </div>
         </div>
     </section>
-
 
 
     <footer>
