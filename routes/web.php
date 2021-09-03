@@ -24,6 +24,20 @@ use App\Http\Controllers\FaqController;
 
 Route::GET('/', [SiteController::class,'index'])->name('index');
 
+Route::GET('/blogs', [SiteController::class,'blog'])->name('blogs');
+
+Route::GET('/blogs/{slug}', [SiteController::class,'blog_detail'])->name('blog.detail');
+
+Route::GET('/events', [SiteController::class,'event'])->name('events');
+
+Route::GET('/events/{slug}', [SiteController::class,'event_detail'])->name('events.detail');
+
+Route::GET('/testimonial', [SiteController::class,'testimonial'])->name('testimonial');
+
+Route::GET('/our-story', [SiteController::class,'story'])->name('story');
+
+Route::GET('/our-team', [SiteController::class,'team'])->name('team');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
