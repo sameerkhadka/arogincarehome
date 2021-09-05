@@ -44,6 +44,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::POST('/update', [CareServiceController::class,'update'])->name('care.update');
 
     Route::GET('/homepage/faqs', [FaqController::class,'homepage'])->name('homepage.faq');
+
+    Route::POST('faq/add', [FaqController::class,'add'])->name('add');
 });
 
 

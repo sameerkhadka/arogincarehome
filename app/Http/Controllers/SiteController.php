@@ -18,6 +18,10 @@ use App\Testimonial;
 
 use App\Homepage;
 
+use App\Feature;
+
+use App\HomepageFaq;
+
 class SiteController extends Controller
 {
     public function index()
@@ -29,7 +33,9 @@ class SiteController extends Controller
         $story =  Story::where('id','1')->first();
         $events = Event::orderBy('created_at', 'desc')->get();
         $blogs = Blog::orderBy('created_at', 'desc')->paginate(3);
-        return view('index', compact('items','homepage','testimonials','services','story','events','blogs'));
+        $features = Feature::orderBy('created_at', 'desc')->get();
+        $faqs = HomepageFaq::orderBy('order','asc')->get();
+        return view('index', compact('items','homepage','testimonials','services','story','events','blogs','features','faqs'));
     }
 
     public function blog()

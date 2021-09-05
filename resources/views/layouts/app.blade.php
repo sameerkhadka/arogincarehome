@@ -34,13 +34,13 @@
                     <ul>
                         <li>
                             <a href="mailto:info@aroginhomecare.com">
-                                <i class="fas fa-info"></i> info@aroginhomecare.com
+                                <i class="fas fa-info"></i> {{setting('contact.email')}}
                             </a>
                         </li>
 
                         <li>
                             <a href="tel:+01-4423423">
-                                <i class="fas fa-phone-alt"></i> 01-4423423
+                                <i class="fas fa-phone-alt"></i> {{setting('contact.footer')}}
                             </a>
                         </li>
 
@@ -135,10 +135,10 @@
                     </div>
 
                     <div class="ft-social">
-                            <a href=""><i class="fab fa-facebook-f"></i> </a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href="{{setting('social-media.facebook')}}" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+                            <a href="{{setting('social-media.instagram')}}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{setting('social-media.twitter')}}"><i class="fab fa-twitter"></i></a>
+                            <a href="{{setting('social-media.linked')}}"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -154,18 +154,18 @@
 
                 <div class="col-md-3 offset-md-1">
                     <div class="footer-contact">
-                        <a href="mailto:info@aroginhomecare.com">
-                            info@aroginhomecare.com
+                        <a href="mailto:{{setting('contact.email')}}">
+                            {{setting('contact.email')}}
                         </a>
                  
 
                    
-                        <a href="tel:+01-4423423">
-                             01-4423423
+                        <a href="tel:{{setting('contact.footer')}}">
+                             {{setting('contact.footer')}}
                         </a>
 
                         <div class="location">
-                            <p>Near Embassy of Finland, Bishalnagar, Kathmandu, Nepal</p>
+                            <p>{{setting('contact.location')}}</p>
                         </div>
                     </div>
                

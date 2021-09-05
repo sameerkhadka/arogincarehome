@@ -86,7 +86,8 @@
                                             {{ old($row->field, $dataTypeContent->{$row->field} ?? '') }}
                                         </textarea>
                                         @if($row->field == 'service_intro')
-                                            <a href="{{route('voyager.services.index')}}" class="custom btn btn-success btn-add-new">For Arogin Care  Features</a>
+                                        <br>
+                                            <a href="{{route('voyager.services.index')}}" class="custom btn btn-success btn-add-new">Click Here To Add Arogin Care  Features</a>
                                             {{-- <button class="custom btn btn-success btn-add-new" onclick="window.location.href='/admin/services';">For Arogin Care  Features</button> --}}
                                         @endif
                                         

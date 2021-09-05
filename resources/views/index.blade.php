@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('meta')
 <meta charset="UTF-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="{{$homepage->meta_key}}">
+<meta name="description" content="{{$homepage->meta_description}}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
 @section('body')
@@ -139,12 +139,14 @@
                 <div class="col-md-6">
                     <div class="all-ser-img" style="background: url(./images/doctorsbg.jpg);">
                         <ul>
+                            @php $items = explode(',',$homepage->team_key); @endphp
+                            @foreach($items as $item)
                             <li>
                                 <img src="./images/icon/star.svg" alt="">
-                                Geriatric Nurses
+                                {{$item}}
                             </li>
-
-                            <li>
+                            @endforeach
+                            {{-- <li>
                                 <img src="./images/icon/star.svg" alt="">
                                 Nutritionists
                             </li>
@@ -162,7 +164,7 @@
                             <li>
                                 <img src="./images/icon/star.svg" alt="">
                                 Clinical Psychologists
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -207,24 +209,24 @@
     <section class="features">
         <div class="container">
             <div class="sec-head">
-                <p>Our Features</p>
+                <p>{{$homepage->feature_title}}</p>
 
-                <h1>
-                    We make sure that our patients/clients condition improves with their well-being and quality of life.
-                </h1>
+                {!!$homepage->feature_heading!!}
             </div>
 
             <div class="ft-wrap">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="ft-sing">
-                            <img src="./images/features/1.png" alt="">
+                    @foreach($features as $feature)
+                        <div class="col-md-4">
+                            <div class="ft-sing">
+                                <img src="{{voyager::image($feature->image)}}" alt="{{$feature->alt}}">
 
-                            <h5>24/7 Skilled Nurses & Care Givers</h5>
+                                <h5>{{$feature->title}}</h5>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
 
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <div class="ft-sing">
                             <img src="./images/features/4.png" alt="">
 
@@ -286,7 +288,7 @@
 
                             <h5>Day Care facility with pick up drop facility</h5>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                 </div>
@@ -572,12 +574,12 @@
     
                             <div class="sc-card">
                                 <i class="fas fa-phone"></i>
-                                <p>9801143425</p>
+                                <p>{{setting('contact.appointment')}}</p>
                             </div>
 
                             <div class="sc-card">
                                 <i class="far fa-envelope"></i>
-                                <p>info@arogincarehome.com</p>
+                                <p>{{setting('contact.email')}}</p>
                             </div>
                         </div>
 
@@ -655,27 +657,24 @@
                     </div>
 
                     <div class="accordion" id="accordionExample">
+                        @foreach($faqs as $faq)
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header" id="heading{{$loop->iteration}}">
                            
-                                    <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h3 class="faq-title">When Are Visiting Hours?</h3>
+                                    <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapse{{$loop->iteration}}" aria-expanded="{{$loop->iteration==1 ? "true" : "false"}}" aria-controls="collapse{{$loop->iteration}}">
+                                        <h3 class="faq-title">{{$faq->question}}</h3>
                                     </button>
                      
                             </div>
                       
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapse{{$loop->iteration}}" class="collapse {{$loop->iteration==1 ? "show" : ""}}" aria-labelledby="heading{{$loop->iteration}}" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>
-                                        We strive to accommodate the needs of family and friends of patients as much as possible and our visiting hours are also flexible .
-                                   
-        
-                                        We have no restrictions for visiting your loved ones at Arogin care home  as we believe that patients benefit from regular visits from friendly faces.
-                                    </p>
+                                    {!!$faq->answer!!}
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
+                        @endforeach
+                        {{-- <div class="card">
                           <div class="card-header" id="headingTwo">
                             
                               <button class=" collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -710,7 +709,7 @@
                           </div>
 
                           <div class="card">
-                            <div class="card-header" id="headingFour">
+                            <div class="card-header" id="heading4">
                               
                                 <button class=" collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                   <h6 class="faq-title">How Long Will I Need To Stay In care home?</h6>
@@ -724,7 +723,7 @@
                                 </p>
                               </div>
                             </div>
-                          </div>
+                          </div> --}}
 
                       
         
