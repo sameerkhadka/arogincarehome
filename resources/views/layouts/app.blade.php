@@ -113,7 +113,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact us</a>
+                                <a class="nav-link" href="{{route('contact')}}">Contact us</a>
                             </li>
      
                         </ul>
@@ -144,11 +144,11 @@
 
                 <div class="col-md-2 offset-md-3">
                     <div class="quick-links">
-                        <a href="">Contact Us</a>
+                        <a href="{{route('contact')}}">Contact Us</a>
                         <a href="">Our Story</a>
                         <a href="">FAQ</a>
                         <a href="">Blogs</a>
-                        <a href="">Admission process</a>
+                        <a href="">Events</a>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
                         </a>
 
                         <div class="location">
-                            <p>{{setting('contact.location')}}</p>
+                            <p>{{setting('contact.footer_location')}}</p>
                         </div>
                     </div>
                
@@ -193,6 +193,6 @@
 
     <script src="{{asset('js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>
-
+    @yield('popup')
 </body>
 </html>

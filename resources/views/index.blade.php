@@ -10,7 +10,7 @@
         <div class="banner-slider owl-carousel">
             @foreach($items as $item)
             <div class="item">
-                <img class="banner-bg" src="{{voyager::image($item->image)}}" alt="{{$item->alt}}" >
+                <img class="banner-bg" src="{{Voyager::image($item->image)}}" alt="{{$item->alt}}" >
                     <div class="overlay banner-overlay"></div>
 
                     <div class="container">
@@ -54,7 +54,7 @@
 
             <section class="abt-images">
                 <div class="abt-img-sing">
-                    <img src="{{voyager::image($homepage->image1)}}" alt="{{$homepage->image1_alt}}">
+                    <img src="{{Voyager::image($homepage->image1)}}" alt="{{$homepage->image1_alt}}">
 
                     <div class="abti-text">
                         {!!$homepage->image1_text!!}
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="abt-img-sing">
-                    <img src="{{voyager::image($homepage->image2)}}" alt="{{$homepage->image2_alt}}">
+                    <img src="{{Voyager::image($homepage->image2)}}" alt="{{$homepage->image2_alt}}">
                     <div class="abti-text">
                         {!!$homepage->image2_text!!}
                     </div>
@@ -219,7 +219,7 @@
                     @foreach($features as $feature)
                         <div class="col-md-4">
                             <div class="ft-sing">
-                                <img src="{{voyager::image($feature->image)}}" alt="{{$feature->alt}}">
+                                <img src="{{Voyager::image($feature->image)}}" alt="{{$feature->alt}}">
 
                                 <h5>{{$feature->title}}</h5>
                             </div>
@@ -317,7 +317,7 @@
                             @php $i = 0; @endphp
                             @foreach(json_decode($story->association_images) as $img)
                                 @php if($i == 6)  break;  @endphp
-                                <li><img src="{{voyager::image($img)}}" alt=""></li>
+                                <li><img src="{{Voyager::image($img)}}" alt=""></li>
                                 @php $i++ @endphp
                             @endforeach
                             {{-- <li><img src="./images/company/grande.png" alt=""></li>
@@ -346,7 +346,7 @@
                 <div class="col-md-4">
                     <div class="event-wrap">
                         <div class="eve-img">
-                            <img src="{{voyager::image($event->image)}}" alt="{{$event->alt}}">
+                            <img src="{{Voyager::image($event->image)}}" alt="{{$event->alt}}">
                             <label class="upcoming">Upcoming</label>
                         </div>
 
@@ -644,7 +644,7 @@
             <div class="row align-item-center">
                 <div class="col-md-6">
                     <div class="faq-img">
-                        <img src="{{voyager::image($homepage->faq_image)}}" alt="{{$homepage->faq_image_alt}}">
+                        <img src="{{Voyager::image($homepage->faq_image)}}" alt="{{$homepage->faq_image_alt}}">
                     </div>
                 </div>
 

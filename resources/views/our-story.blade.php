@@ -7,7 +7,7 @@
 @endsection
 @section('body')
 
-    <section class="inner-banner" style="background: url({{voyager::image($item->image)}});">
+    <section class="inner-banner" style="background: url({{Voyager::image($item->image)}});">
         <div class="container">
             <div class="breadcrumbs">
                 <ul>
@@ -74,7 +74,7 @@
                             @php $i = 0; @endphp
                             @foreach(json_decode($item->association_images) as $img)
                                 @php if($i == 6)  break;  @endphp
-                                <li><img src="{{voyager::image($img)}}" alt=""></li>
+                                <li><img src="{{Voyager::image($img)}}" alt=""></li>
                                 @php $i++ @endphp
                             @endforeach
                             {{-- <li><img src="./images/company/grande.png" alt=""></li>
@@ -105,7 +105,7 @@
                     @foreach($services as $service)
                         <div class="col-md-4">
                             <div class="wh-wrap">
-                                <img src="{{voyager::image($service->image)}}" alt="{{$service->alt}}">
+                                <img src="{{Voyager::image($service->image)}}" alt="{{$service->alt}}">
 
                                 <h4>
                                     {{$service->title}}
@@ -261,7 +261,7 @@ and medication management is done.
 
                 <div class="col-md-6">
                     <div class="aspire-img">
-                        <img src="{{voyager::image($item->strive_image)}}" alt="{{$item->strive_image_alt}}">
+                        <img src="{{Voyager::image($item->strive_image)}}" alt="{{$item->strive_image_alt}}">
                     </div>
                 </div>
 

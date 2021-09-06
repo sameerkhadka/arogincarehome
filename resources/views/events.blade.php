@@ -45,7 +45,7 @@
                 <div class="col-md-4">
                     <div class="event-wrap">
                         <div class="eve-img">
-                            <img src="{{voyager::image($item->image)}}" alt="{{$item->alt}}">
+                            <img src="{{Voyager::image($item->image)}}" alt="{{$item->alt}}">
                             <label class="upcoming">Upcoming</label>
                         </div>
 

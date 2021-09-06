@@ -24,7 +24,7 @@
         <div class="container">
             @foreach($items as $item)
                 <div class="test-card">
-                    <img src="{{voyager::image($item->image)}}" alt="{{$item->alt}}">
+                    <img src="{{Voyager::image($item->image)}}" alt="{{$item->alt}}">
 
                     <div class="tes-desc">
                         <h6>{{$item->name}}</h6>

@@ -24,7 +24,7 @@
             <h4>{!!$item->title!!}</h4>
             
             <div class="cover-image">
-                <img src="{{voyager::image($item->image)}}" alt="{{$item->image_alt}}">
+                <img src="{{Voyager::image($item->image)}}" alt="{{$item->image_alt}}">
             </div>
 
             <div class="blg-des">

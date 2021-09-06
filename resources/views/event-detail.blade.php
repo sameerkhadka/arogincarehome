@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="event-img">
-                        <img src="{{voyager::image($item->image)}}" alt="{{$item->alt}}">
+                        <img src="{{Voyager::image($item->image)}}" alt="{{$item->alt}}">
                     </div>
                 </div>
 

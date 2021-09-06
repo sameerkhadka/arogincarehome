@@ -32,11 +32,13 @@ Route::GET('/events', [SiteController::class,'event'])->name('events');
 
 Route::GET('/events/{slug}', [SiteController::class,'event_detail'])->name('events.detail');
 
-Route::GET('/testimonial', [SiteController::class,'testimonial'])->name('testimonial');
+Route::GET('/our-testimonials', [SiteController::class,'testimonial'])->name('testimonial');
 
 Route::GET('/our-story', [SiteController::class,'story'])->name('story');
 
 Route::GET('/our-team', [SiteController::class,'team'])->name('team');
+
+Route::GET('/contact-us', [SiteController::class,'contact'])->name('contact');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

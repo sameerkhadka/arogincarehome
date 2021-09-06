@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Slider;
 
-use App\BLog;
+use App\Blog;
 
 use App\Event;
 
@@ -78,6 +78,11 @@ class SiteController extends Controller
         $services = Service::orderBy('order','asc')->get();
         $item =  Story::where('id','1')->first();
         return view('our-story', compact('services', 'item'));
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 }
 
