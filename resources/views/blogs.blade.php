@@ -25,7 +25,7 @@
                     <div class="col-md-4">
                         <div class="event-wrap">
                             <div class="eve-img">
-                                <img src="{{voyager::image($item->image)}}" alt="{{$item->image_alt}}">
+                                <img src="{{Voyager::image($item->image)}}" alt="{{$item->image_alt}}">
                             </div>
 
                             <div class="eve-dis for-blogs">
