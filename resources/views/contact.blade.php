@@ -5,6 +5,15 @@
 <meta name="description" content="{{setting('contact.description')}}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
+@section('toastr')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>  
+    @if(Session::has('success'))  
+            toastr.success("{{ Session('success') }}");  
+    @endif  
+    </script>  
+@endsection
 @section('body')
     <section class="inner-banner" style="background: url({{Voyager::image(setting('contact.banner'))}});">
         <div class="container">
@@ -56,48 +65,53 @@
                 </div>
 
                 <div class="contact-form">
+                    <form action="{{ route('submit-form') }}" method="POST">
+                        @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="cf-card">
                                 <label >First Name</label>
-                                <input type="text">
+                                <input type="text" name="first_name" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="cf-card">
                                 <label >Last Name</label>
-                                <input type="text">
+                                <input type="text" name="last_name" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="cf-card">
                                 <label >Mail</label>
-                                <input type="email">
+                                <input type="email" name="email" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="cf-card">
                                 <label >Phone</label>
-                                <input type="number">
+                                <input type="number" name="phone" required>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="cf-card">
                                 <label >Message</label>
-                                <textarea></textarea>
+                                <textarea name="message" required></textarea>
                             </div>
                         </div>
 
+                        <input type="hidden" name="recaptcha" id="recaptcha">
+
                         <div class="col-md-12">
                             <div class="cf-card mb-0">
-                                <button>Send Message</button>
+                                <input type="submit" value="Send Message" class="btn-submit">
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
 

@@ -555,7 +555,7 @@ section.sto-top {
             height: 150px;
         }
 
-        button {
+        .btn-submit {
             background: #8bbd40;
             color: #fff;
             padding: 15px 30px;
@@ -565,6 +565,8 @@ section.sto-top {
             border-radius: 5px;
             line-height: 1;
             cursor: pointer;
+            width: 170px;
+            margin-left: auto;
 
             &:focus {
                 outline: none;

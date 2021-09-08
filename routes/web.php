@@ -7,6 +7,9 @@ use App\Http\Controllers\CareServiceController;
 use App\Http\Controllers\SiteController;
 
 use App\Http\Controllers\FaqController;
+
+use App\Http\Controllers\EmailController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +42,8 @@ Route::GET('/our-story', [SiteController::class,'story'])->name('story');
 Route::GET('/our-team', [SiteController::class,'team'])->name('team');
 
 Route::GET('/contact-us', [SiteController::class,'contact'])->name('contact');
+
+Route::post('/submit-form',[EmailController::class,'send'])->name('submit-form');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -145,10 +145,10 @@
                 <div class="col-md-2 offset-md-3">
                     <div class="quick-links">
                         <a href="{{route('contact')}}">Contact Us</a>
-                        <a href="">Our Story</a>
-                        <a href="">FAQ</a>
-                        <a href="">Blogs</a>
-                        <a href="">Events</a>
+                        <a href="{{route('story')}}">Our Story</a>
+                        <a href="#">FAQ</a>
+                        <a href="{{route('blogs')}}">Blogs</a>
+                        <a href="{{route('events')}}">Events</a>
                     </div>
                 </div>
 
@@ -185,6 +185,7 @@
 
  
     <script src="{{asset('js/jquery.min.js')}}"></script>
+    @yield('toastr')
     <script src="{{asset('js/bootstrap.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>

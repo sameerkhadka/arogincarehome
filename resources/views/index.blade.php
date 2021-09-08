@@ -5,6 +5,17 @@
 <meta name="description" content="{{$homepage->meta_description}}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
+
+@section('toastr')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>  
+    @if(Session::has('success'))  
+            toastr.success("{{ Session('success') }}");  
+    @endif  
+    </script>  
+@endsection
+
 @section('body')
 <section class="banner">
         <div class="banner-slider owl-carousel">
@@ -595,33 +606,34 @@
                             <h4>Book an Appointment</h4>
                             <p>We are happy to welcome you for your tour at arogin care 
                                 home facilities before making your decision.</p>
-
+                            <form action="{{ route('submit-form') }}" method="POST">
+                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="sc-form">
                                         <label >Full Name</label>
-                                        <input type="text">
+                                        <input type="text" name='name' required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="sc-form">
                                         <label >Phone Number</label>
-                                        <input type="number">
+                                        <input type="number" name='phone' required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="sc-form">
                                         <label >Email Address</label>
-                                        <input type="email">
+                                        <input type="email" name='email' required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="sc-form">
                                         <label >Message</label>
-                                        <textarea name="" id="" ></textarea>
+                                        <textarea name='message' required></textarea>
                                     </div>
                                 </div>
 
@@ -631,6 +643,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>
