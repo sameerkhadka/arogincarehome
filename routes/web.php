@@ -10,6 +10,8 @@ use App\Http\Controllers\FaqController;
 
 use App\Http\Controllers\EmailController;
 
+use App\Http\Controllers\PageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,7 +54,11 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::GET('/homepage/faqs', [FaqController::class,'homepage'])->name('homepage.faq');
 
+    Route::GET('/our-team', [PageController::class,'page'])->name('team');
+
     Route::POST('faq/add', [FaqController::class,'add'])->name('add');
+
+    Route::POST('update/{id}', [PageController::class,'update'])->name('page.update');
 });
 
 

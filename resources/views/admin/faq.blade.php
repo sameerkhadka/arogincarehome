@@ -78,7 +78,7 @@
         <input v-on:click="addItem" class="btn btn-success" type="button"
             value="Add">
 
-        <button v-on:click="submitData" class="btn btn-primary">SAVE</button>
+        <button class="btn btn-primary" :disabled="submitting" v-on:click="submitData">SAVE</button>
        
     </div>
 
@@ -112,12 +112,13 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         },
         data: {            
             toBeDeleted: [],
-            info: [
+            info: [     
                 {
                     question:'',
                     answer:''
                 }
             ],
+            submitting: false,
             editor: ClassicEditor,
             editorData: '',
             editorConfig: {
@@ -157,10 +158,13 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 
             },
             submitData() {
+                let that = this;
+                this.submitting = true;
                 axios.post('{{ route('add') }}', {
                     info: this.info,
                     toBeDeleted: this.toBeDeleted 
-                }).then((response) => {
+                }).then(function(response) {
+                    that.submitting = false;
                     toastr.success('Successfully added data. Please add more!!');
                 }).catch(function(error){
                         if (error.response) {
