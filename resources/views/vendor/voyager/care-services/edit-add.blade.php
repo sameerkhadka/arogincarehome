@@ -4,6 +4,7 @@
 @endphp
 
 @extends('voyager::master')
+
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
@@ -26,15 +27,15 @@
                 <div class="panel panel-bordered">
                     <!-- form start -->
                     <form role="form"
-                            class="form-edit-add"
-                            action="{{ $edit ? route('care.update', $dataTypeContent->id) : route('care.update')}}"
-                            method="POST" enctype="multipart/form-data">
+                          class="form-edit-add"
+                          action="{{ $edit ? route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) : route('voyager.'.$dataType->slug.'.store') }}"
+                          method="POST" enctype="multipart/form-data">
                         <!-- PUT Method if we are editing -->
-                        @if($edit)
-                            {{ method_field("PUT") }}
-                        @endif
+                    @if($edit)
+                        {{ method_field("PUT") }}
+                    @endif
 
-                        <!-- CSRF TOKEN -->
+                    <!-- CSRF TOKEN -->
                         {{ csrf_field() }}
 
                         <div class="panel-body">
@@ -49,13 +50,13 @@
                                 </div>
                             @endif
 
-                            <!-- Adding / Editing -->
+                        <!-- Adding / Editing -->
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                             @endphp
 
                             @foreach($dataTypeRows as $row)
-                                <!-- GET THE DISPLAY OPTIONS -->
+                            <!-- GET THE DISPLAY OPTIONS -->
                                 @php
                                     $display_options = $row->details->display ?? NULL;
                                     if ($dataTypeContent->{$row->field.'_'.($edit ? 'edit' : 'add')}) {
@@ -74,21 +75,15 @@
                                         @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => ($edit ? 'edit' : 'add'), 'view' => ($edit ? 'edit' : 'add'), 'options' => $row->details])
                                     @elseif ($row->type == 'relationship')
                                         @include('voyager::formfields.relationship', ['options' => $row->details])
+                                    @elseif($row->field=='image_titles' || $row->field=='image_alts')
                                     @elseif($row->type == "multiple_images")
-                                        <br>
-                                         @if(isset($dataTypeContent->{$row->field}))
-                                             <?php $images = json_decode($dataTypeContent->{$row->field}); ?>
-                                             @if($images != null)
-                                                 @foreach($images as $image)
-                                                     <div class="img_settings_container" data-field-name="{{ $row->field }}" style="float:left;padding-right:15px;">
-                                                         <a href="#" class="voyager-x remove-multi-image" style="position: absolute;"></a>
-                                                         <img src="{{ Voyager::image( $image ) }}" data-file-name="{{ $image }}" data-id="{{ $dataTypeContent->getKey() }}" style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:5px;">
-                                                     </div>
-                                                 @endforeach
-                                             @endif
-                                         @endif
-                                         <div class="clearfix"></div>
-                                         <input @if($row->required == 1 && !isset($dataTypeContent->{$row->field})) required @endif type="file" name="{{ $row->field }}[]" multiple="multiple" accept="image/*">   
+                                        @include('vendor.voyager.care-services.multiple_images',[
+                                             'row' => $row,
+                                             'dataType' => $dataType,
+                                             'dataTypeContent' => $dataTypeContent,
+                                             'edit' =>$edit,
+
+                                        ])
                                     @else
                                         {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                                     @endif
@@ -116,9 +111,9 @@
 
                     <iframe id="form_target" name="form_target" style="display:none"></iframe>
                     <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-                            enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+                          enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
                         <input name="image" id="upload_file" type="file"
-                                 onchange="$('#my_form').submit();this.value='';">
+                               onchange="$('#my_form').submit();this.value='';">
                         <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
                         {{ csrf_field() }}
                     </form>
@@ -158,21 +153,21 @@
         var $file;
 
         function deleteHandler(tag, isMulti) {
-          return function() {
-            $file = $(this).siblings(tag);
+            return function() {
+                $file = $(this).siblings(tag);
 
-            params = {
-                slug:   '{{ $dataType->slug }}',
-                filename:  $file.data('file-name'),
-                id:     $file.data('id'),
-                field:  $file.parent().data('field-name'),
-                multi: isMulti,
-                _token: '{{ csrf_token() }}'
-            }
+                params = {
+                    slug:   '{{ $dataType->slug }}',
+                    filename:  $file.data('file-name'),
+                    id:     $file.data('id'),
+                    field:  $file.parent().data('field-name'),
+                    multi: isMulti,
+                    _token: '{{ csrf_token() }}'
+                }
 
-            $('.confirm_delete_name').text(params.filename);
-            $('#confirm_delete_modal').modal('show');
-          };
+                $('.confirm_delete_name').text(params.filename);
+                $('#confirm_delete_modal').modal('show');
+            };
         }
 
         $('document').ready(function () {
@@ -194,7 +189,7 @@
             });
 
             @if ($isModelTranslatable)
-                $('.side-body').multilingual({"editing": true});
+            $('.side-body').multilingual({"editing": true});
             @endif
 
             $('.side-body input[data-slug-origin]').each(function(i, el) {
