@@ -20,7 +20,7 @@ use App\Homepage;
 
 use App\Feature;
 
-use App\HomepageFaq;
+use App\Faq;
 
 class SiteController extends Controller
 {
@@ -34,7 +34,7 @@ class SiteController extends Controller
         $events = Event::orderBy('created_at', 'desc')->get();
         $blogs = Blog::orderBy('created_at', 'desc')->paginate(3);
         $features = Feature::orderBy('created_at', 'desc')->get();
-        $faqs = HomepageFaq::orderBy('order','asc')->get();
+        $faqs = Faq::orderBy('order','asc')->get();
         return view('index', compact('items','homepage','testimonials','services','story','events','blogs','features','faqs'));
     }
 

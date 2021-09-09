@@ -34,7 +34,7 @@
     .cardLists {
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;        
+        flex-wrap: wrap;
         padding: 20px ;
     }
 
@@ -54,7 +54,7 @@
                 <div class=" card dragItem" v-for="(item,index) in info" :key="index">
                     <button class="myBtn handle">::Drag</button>
                     <div class="row">
-                        <div class="form-group  col-md-6 ">
+                        <div class="form-group  col-md-12 ">
                             <label class="control-label" for="name">Question No. @{{index + 1}}</label>
                             <input required type="text" class="form-control" v-model="item.question">
                         </div>
@@ -69,17 +69,17 @@
                             <input class="btn btn-danger" type="button" v-on:click="deleteItem(item)" value="Delete">
                         </div>
                     </div>
-                </div> 
+                </div>
             </transition-group>
         </vue-draggable>
-    </div> 
+    </div>
 
     <div class="panel-footer">
         <input v-on:click="addItem" class="btn btn-success" type="button"
             value="Add">
 
-        <button v-on:click="submitData" class="btn btn-primary">SAVE</button>
-       
+        <button v-on:click="submitData" class="btn btn-primary" :disabled="disable">SAVE</button>
+
     </div>
 
 
@@ -110,7 +110,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             'vue-draggable': vuedraggable,
             'vue-ckeditor': CKEditor.component
         },
-        data: {            
+        data: {
             toBeDeleted: [],
             info: [
                 {
@@ -123,8 +123,11 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             editorConfig: {
                 // The configuration of the editor.
             },
-            drag: false
-            
+            drag: false,
+            disable:false,
+            pageType:'',
+            pageTypeID:''
+
         },
         computed: {
             dragOptions() {
@@ -137,6 +140,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             }
         },
         created() {
+            this.pageType = "{{Request::segment(2)}}";
             this.info = @json($items)
         },
         methods: {
@@ -154,13 +158,18 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                     this.info.splice(this.info.indexOf(item), 1)
                     toastr.success('Deleted! Save to finalize.')
                 }
-                
+
             },
             submitData() {
+                let that  = this;
+                this.disable=true;
                 axios.post('{{ route('add') }}', {
                     info: this.info,
-                    toBeDeleted: this.toBeDeleted 
+                    toBeDeleted: this.toBeDeleted,
+                    type: this.pageType
                 }).then((response) => {
+                    that.disable = false;
+                    that.info = response.data.faqs;
                     toastr.success('Successfully added data. Please add more!!');
                 }).catch(function(error){
                         if (error.response) {
