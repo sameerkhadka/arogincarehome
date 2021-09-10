@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::POST('/update', [CareServiceController::class,'update'])->name('care.update');
 
-    Route::GET('/homepage/faqs', [FaqController::class,'homepage'])->name('homepage.faq');
+    Route::GET('/{slug}/faqs', [FaqController::class,'index'])->name('homepage.faq');
 
     Route::GET('/our-team', [PageController::class,'page'])->name('team');
 
