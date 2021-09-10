@@ -15,7 +15,7 @@
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
         </h1>
-        
+
         @can('delete', app($dataType->model_name))
             @if($usesSoftDeletes)
                 <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('voyager::bread.soft_deletes_off') }}" data-off="{{ __('voyager::bread.soft_deletes_on') }}">
@@ -36,37 +36,50 @@
             <div class="panel-body">
                 @php $item = \App\Models\Page::where('id','2')->first(); @endphp
                 <form action="{{route('page.update',$item->id)}}" method="POST" enctype='multipart/form-data'>
-                    @csrf 
-                    <div class="form-group col-md-12 ">                                    
+                    @csrf
+                    <div class="form-group col-md-12 ">
                         <label class="control-label" for="name">Meta Key</label>
-                        <input type="text" class="form-control" name="meta_key" value="{{$item->meta_key}}">                        
+                        <input type="text" class="form-control" name="meta_key" value="{{$item->meta_key}}">
                     </div>
-                    <div class="form-group  col-md-12 ">                                    
+                    <div class="form-group  col-md-12 ">
                         <label class="control-label" for="name">Meta Description</label>
-                        <textarea class="form-control" name="meta_description" rows="5">{{$item->meta_description}}</textarea>                        
+                        <textarea class="form-control" name="meta_description" rows="5">{{$item->meta_description}}</textarea>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-9" >
                             <label class="control-label" for="name">Banner Text</label>
                             <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}">
-                        </div>                                
+                        </div>
                         <div class="form-group col-md-3">
                             <label class="control-label" for="name">Banner Image</label>
                             <img src="{{asset('storage/pages/September2021/' . $item->image)}}" style="width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                             <input type="file" name="image">
-                        </div>                    
+                        </div>
                     </div>
-                    <div class="form-group col-md-12 ">                                    
+                    <div class="form-group col-md-12 ">
                         <label class="control-label" for="name">Content Title</label>
-                        <input type="text" class="form-control" name="content_title" value="{{$item->content_title}}">                        
+                        <input type="text" class="form-control" name="content_title" value="{{$item->content_title}}">
                     </div>
-                    <div class="form-group  col-md-12 ">                                    
+                    <div class="form-group  col-md-12 ">
                         <label class="control-label" for="name">Content Heading</label>
-                        <textarea class="form-control" name="content_heading" rows="5">{!!$item->content_heading!!}</textarea>                        
+                        <textarea class="form-control richTextBox" name="content_heading" id="richtextcontent_heading">
+                                        {{ old('content_heading', $item->content_heading ?? '') }}
+                        </textarea>
+                        @push('javascript')
+                            <script>
+                                $(document).ready(function() {
+                                    var additionalConfig = {
+                                        selector: 'textarea.richTextBox[name="content_heading"]',
+                                    }
+                                    $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
+                                    tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
+                                });
+                            </script>
+                        @endpush
                     </div>
-                    <div class="form-group  col-md-12 ">                                    
+                    <div class="form-group  col-md-12 ">
                         <label class="control-label" for="name">Content Description</label>
-                        <textarea class="form-control" name="content_description" rows="5">{{$item->content_description}}</textarea>                        
+                        <textarea class="form-control" name="content_description" rows="5">{{$item->content_description}}</textarea>
                     </div>
                     <input type="submit" value="save" class="btn btn-success btn-add-new">
                 </form>
