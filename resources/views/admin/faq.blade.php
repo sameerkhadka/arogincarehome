@@ -104,6 +104,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('js/plugins/@ckeditor/ckeditor5-vue2/dist/ckeditor.js') }}"></script>
 
 <script>
+    var pageTypeID = '{{request("id")}}';
     var app = new Vue({
         el: '#app',
         components: {
@@ -141,7 +142,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         },
         created() {
             this.pageType = "{{Request::segment(2)}}";
-            this.info = @json($items)
+            this.info = @json($items);
+            if(pageTypeID){
+                this.pageTypeID=pageTypeID;
+            }
         },
         methods: {
             addItem() {
@@ -166,7 +170,8 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 axios.post('{{ route('add') }}', {
                     info: this.info,
                     toBeDeleted: this.toBeDeleted,
-                    type: this.pageType
+                    type: this.pageType,
+                    id : this.pageTypeID || null
                 }).then((response) => {
                     that.disable = false;
                     that.info = response.data.faqs;
