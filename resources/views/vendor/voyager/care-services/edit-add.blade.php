@@ -75,7 +75,7 @@
                                         @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => ($edit ? 'edit' : 'add'), 'view' => ($edit ? 'edit' : 'add'), 'options' => $row->details])
                                     @elseif ($row->type == 'relationship')
                                         @include('voyager::formfields.relationship', ['options' => $row->details])
-                                    @elseif($row->field=='image_titles' || $row->field=='image_alts')
+                                    @elseif($row->field=='image_alts')
                                     @elseif($row->type == "multiple_images")
                                         @include('vendor.voyager.care-services.multiple_images',[
                                              'row' => $row,

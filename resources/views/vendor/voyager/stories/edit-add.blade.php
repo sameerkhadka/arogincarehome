@@ -104,7 +104,17 @@
                                                     tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
                                                 });
                                             </script>
-                                        @endpush                                     
+                                        @endpush                                         
+                                    @elseif($row->field=='image_alts')
+                                   
+                                    @elseif($row->type == "multiple_images")
+                                        @include('vendor.voyager.stories.multiple_images',[
+                                             'row' => $row,
+                                             'dataType' => $dataType,
+                                             'dataTypeContent' => $dataTypeContent,
+                                             'edit' =>$edit,
+
+                                        ])                                    
                                     @else
                                         {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                                     @endif

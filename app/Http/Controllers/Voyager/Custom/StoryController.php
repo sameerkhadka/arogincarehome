@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Voyager\Custom;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController as BaseVoyagerBaseController;
 
-class CareServiceController extends BaseVoyagerBaseController
+class StoryController extends BaseVoyagerBaseController
 {
     use BreadRelationshipParser;
 
