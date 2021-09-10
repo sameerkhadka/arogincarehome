@@ -80,7 +80,7 @@
                     <div class="form-group  col-md-12 ">
                         <label class="control-label" for="name">Content Description</label>
                         <textarea class="form-control" name="content_description" rows="5">{{$item->content_description}}</textarea>
-                    </div>
+              </div>
                     <input type="submit" value="save" class="btn btn-success btn-add-new">
                 </form>
             </div>
@@ -127,7 +127,7 @@
                         <div class="btn-custom">
                             @can('add', app($dataType->model_name))
                                 <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
-                                    <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
+                                    <i class="voyager-plus"></i> <span>Add New Events</span>
                                 </a>
                             @endcan
                             @can('delete', app($dataType->model_name))

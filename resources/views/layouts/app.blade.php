@@ -106,7 +106,7 @@
                                 <div class="sub-menu">
                                     <ul>
                                         <li><a href="{{route('story')}}">Our Story</a></li>
-                                        <li><a href="{{route('team')}}">Our Team</a></li>
+                                        <li><a href="{{route('our-team')}}">Our Team</a></li>
                                         <li><a href="{{route('testimonial')}}">Our Testimonials</a></li>
                                     </ul>
                                 </div>

@@ -24,17 +24,43 @@
                             <input type="file" name="image">
                         </div>                    
                     </div>
-                    <div class="form-group col-md-12 ">           k                         
+                    <div class="form-group col-md-12 ">                                   
                         <label class="control-label" for="name">Content Title</label>
                         <input type="text" class="form-control" name="content_title" value="{{$item->content_title}}">                        
                     </div>
                     <div class="form-group  col-md-12 ">                                    
                         <label class="control-label" for="name">Content Heading</label>
-                        <textarea class="form-control" name="content_heading" rows="5">{!!$item->content_heading!!}</textarea>                        
+                        <textarea class="form-control richTextBox" name="content_heading" id="richtextcontent_heading">
+                            {{ old('content_heading', $item->content_heading ?? '') }}
+                        </textarea>
+                        @push('javascript')
+                            <script>
+                                $(document).ready(function() {
+                                    var additionalConfig = {
+                                        selector: 'textarea.richTextBox[name="content_heading"]',
+                                    }
+                                    $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
+                                    tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
+                                });
+                            </script>
+                        @endpush                      
                     </div>
                     <div class="form-group  col-md-12 ">                                    
                         <label class="control-label" for="name">Content Description</label>
-                        <textarea class="form-control" name="content_description" rows="5">{{$item->content_description}}</textarea>                        
+                        <textarea class="form-control richTextBox" name="content_description" id="richtextcontent_description">
+                            {{ old('content_description', $item->content_description ?? '') }}
+                        </textarea>
+                        @push('javascript')
+                            <script>
+                                $(document).ready(function() {
+                                    var additionalConfig = {
+                                        selector: 'textarea.richTextBox[name="content_description"]',
+                                    }
+                                    $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
+                                    tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
+                                });
+                            </script>
+                        @endpush                     
                     </div>
                     <input type="submit" value="save" class="btn btn-success btn-add-new">
                 </form>

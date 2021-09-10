@@ -41,7 +41,7 @@ Route::GET('/our-testimonials', [SiteController::class,'testimonial'])->name('te
 
 Route::GET('/our-story', [SiteController::class,'story'])->name('story');
 
-Route::GET('/our-team', [SiteController::class,'team'])->name('team');
+Route::GET('/our-team', [SiteController::class,'team'])->name('our-team');
 
 Route::GET('/contact-us', [SiteController::class,'contact'])->name('contact');
 

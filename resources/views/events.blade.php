@@ -1,20 +1,21 @@
 @extends('layouts.app')
 @section('meta')
+@php $event = \App\Models\Page::where('id','2')->first(); @endphp
 <meta charset="UTF-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="{{$event->meta_key}}">
+<meta name="description" content="{{$event->meta_description}}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
 @section('body')
 
-    <section class="inner-banner" style="background: url(./images/tips.jpg);">
+    <section class="inner-banner" style="background: url({{asset('storage/pages/September2021/' . $event->image)}});">
         <div class="container">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="">home</a></li>
-                    <li><a href="">events</a></li>
+                    <li><a href="{{route('index')}}">home</a></li>
+                    <li><a href="">{{$event->title}}</a></li>
                 </ul>
-                <h3>Events</h3>
+                <h3>{{$event->title}}</h3>
             </div>
         </div>
     </section>
@@ -22,18 +23,11 @@
     <section class="event-head">
         <div class="container">
             <div class="sec-head">
-                <p>Events & Activities</p>
+                <p>{{$event->content_title}}</p>
 
-                <h4>
-                    Arogin care is connected together to smile, to share and create beautiful memories together    
-                </h4>
+                {!!$event->content_heading!!}
 
-                <span>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis reprehenderit 
-                    quidem nemo voluptas porro aperiam. Ipsum laboriosam doloremque, magni, earum,
-                     mollitia est officia praesentium vitae error fugiat fugit dolorum eaque obcaecati
-                     . Hic soluta earum ipsum maxime libero eaque laudantium laboriosam!
-                </span>
+                <span>{!!$event->content_description!!}</span>
             </div>
         </div>
     </section>

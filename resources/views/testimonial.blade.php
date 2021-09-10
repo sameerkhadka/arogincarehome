@@ -1,21 +1,22 @@
 @extends('layouts.app')
 @section('meta')
+@php $test = \App\Models\Page::where('id','4')->first(); @endphp
 <meta charset="UTF-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="{{$test->meta_key}}">
+<meta name="description" content="{{$test->meta_description}}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
 @section('body')
 
-    <section class="inner-banner" style="background: url(./images/testimonial.jpg);">
+    <section class="inner-banner" style="background: url({{asset('storage/pages/September2021/' . $test->image)}});">
         <div class="container">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="">home</a></li>
+                    <li><a href="{{route('index')}}">home</a></li>
                     <li><a href="">who we are</a></li>
-                    <li><a href="">Our Testimonials</a></li>
+                    <li><a href="">{{$test->title}}</a></li>
                 </ul>
-                <h3>Our Testimonials</h3>
+                <h3>{{$test->title}}</h3>
             </div>
         </div>
     </section>
