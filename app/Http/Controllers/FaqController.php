@@ -31,7 +31,7 @@ class FaqController extends Controller
                     $item['order'] = $key;
                     Faq::create($item);
                 }
-             }
+            }
             return response(['faqs'=>Faq::where('type','homepage')->orderBy('order')->get()],200);
         }
     }
