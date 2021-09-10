@@ -14,7 +14,10 @@ class PageController extends Controller
      
      if($request->hasFile('image'))
         {    
-             unlink(public_path().'/storage'.'/pages'.'/September2021'.'/'.$item->image);
+            if (file_exists(public_path('storage/pages/September2021/' . $item->image)))
+            {
+                unlink(public_path().'/storage'.'/pages'.'/September2021'.'/'.$item->image);
+            }           
             
              $file = $request->file('image');
 
