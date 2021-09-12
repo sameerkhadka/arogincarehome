@@ -66,14 +66,16 @@
 
                                 <div class="sub-menu">
                                     <ul>
-                                        <li><a href="nursing-care.html">24/7 Nursing care</a></li>
-                                        <li><a href="stroke-care.html">Stroke Care & Rehabilitation</a></li>
+                                        @foreach($careservices as $careservice)
+                                            <li><a href="{{route('services', $careservice->title)}}">{{$careservice->title}}</a></li>
+                                        @endforeach
+                                        {{-- <li><a href="stroke-care.html">Stroke Care & Rehabilitation</a></li>
                                         <li><a href="dementia-care.html">Dementia & Alzheimer’s Care</a></li>
                                         <li><a href="day-care.html">Residential & Day care service</a></li>
                                         <li><a href="palliative-care.html">Palliative Care</a></li>
                                         <li><a href="orthology-care.html">Ortho & Spinal Injury Care</a></li>
                                         <li><a href="lab-services.html">Lab Services</a></li>
-                                        <li><a href="pharmacy.html">Pharmacy</a></li>
+                                        <li><a href="pharmacy.html">Pharmacy</a></li> --}}
                                     </ul>
                                 </div>
                             </li>
@@ -88,8 +90,8 @@
                                 <div class="sub-menu">
                                     <ul>
                                         <li><a href="{{route('blogs')}}">Blogs</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="tips.html">Tips</a></li>
+                                        <li><a href="{{route('main.faq')}}">FAQs</a></li>
+                                        <li><a href="{{route('tip')}}">Tips</a></li>
                                     </ul>
                                 </div>
 

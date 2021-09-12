@@ -70,13 +70,10 @@
 
                 <div class="col-md-7">
                     <div class="partner-logo">
-                        <ul>
-                            @php $i = 0; @endphp
-                            @foreach(json_decode($item->association_images) as $img)
-                                @php if($i == 6)  break;  @endphp
-                                <li><img src="{{Voyager::image($img)}}" alt=""></li>
-                                @php $i++ @endphp
-                            @endforeach
+                        <ul>                           
+                                @foreach(json_decode($item->association_images) as $img)
+                                    <li><img src="{{Voyager::image($img)}}" alt="{{json_decode($item->image_alts)[$loop->iteration - 1]}}"></li>
+                                @endforeach
                             {{-- <li><img src="./images/company/grande.png" alt=""></li>
                             <li><img src="./images/company/medi.png" alt=""></li>
                             <li><img src="./images/company/medi.png" alt=""></li>

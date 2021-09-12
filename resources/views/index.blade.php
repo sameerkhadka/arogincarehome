@@ -328,7 +328,7 @@
                             @php $i = 0; @endphp
                             @foreach(json_decode($story->association_images) as $img)
                                 @php if($i == 6)  break;  @endphp
-                                <li><img src="{{Voyager::image($img)}}" alt=""></li>
+                                <li><img src="{{Voyager::image($img)}}" alt="{{json_decode($story->image_alts)[$loop->iteration - 1]}}"></li>
                                 @php $i++ @endphp
                             @endforeach
                             {{-- <li><img src="./images/company/grande.png" alt=""></li>

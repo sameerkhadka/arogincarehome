@@ -41,9 +41,15 @@ Route::GET('/our-testimonials', [SiteController::class,'testimonial'])->name('te
 
 Route::GET('/our-story', [SiteController::class,'story'])->name('story');
 
+Route::GET('/tips', [SiteController::class,'tip'])->name('tip');
+
+Route::GET('/faqs', [SiteController::class,'faq'])->name('main.faq');
+
 Route::GET('/our-team', [SiteController::class,'team'])->name('our-team');
 
 Route::GET('/contact-us', [SiteController::class,'contact'])->name('contact');
+
+Route::GET('/services/{slug}', [SiteController::class,'services'])->name('services');
 
 Route::post('/submit-form',[EmailController::class,'send'])->name('submit-form');
 

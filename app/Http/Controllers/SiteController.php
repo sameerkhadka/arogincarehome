@@ -22,6 +22,8 @@ use App\Feature;
 
 use App\Faq;
 
+use App\Tip;
+
 class SiteController extends Controller
 {
     public function index()
@@ -34,7 +36,7 @@ class SiteController extends Controller
         $events = Event::orderBy('created_at', 'desc')->get();
         $blogs = Blog::orderBy('created_at', 'desc')->paginate(3);
         $features = Feature::orderBy('created_at', 'desc')->get();
-        $faqs = Faq::orderBy('order','asc')->get();
+        $faqs = Faq::where('type','homepage')->orderBy('order','asc')->get();
         return view('index', compact('items','homepage','testimonials','services','story','events','blogs','features','faqs'));
     }
 
@@ -83,6 +85,23 @@ class SiteController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function faq()
+    {
+        $faqs = Faq::where('type','main')->orderBy('order','asc')->get();
+        return view('faq', compact('faqs'));
+    }
+
+    public function tip()
+    {
+        $tips = Tip::orderBy('order','asc')->get();
+        return view('tips', compact('tips'));
+    }
+
+    public function services($slug)
+    {
+        return view('service');
     }
 }
 
