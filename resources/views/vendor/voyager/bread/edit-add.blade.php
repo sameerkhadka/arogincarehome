@@ -7,12 +7,6 @@
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <style>
-        button.custom.btn.btn-success.btn-add-new {
-            margin-top: 20px;
-        }
-
-    </style>
 @stop
 
 @section('page_title', __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular'))
@@ -60,8 +54,8 @@
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                             @endphp
-                            @foreach($dataTypeRows as $row)
 
+                            @foreach($dataTypeRows as $row)
                                 <!-- GET THE DISPLAY OPTIONS -->
                                 @php
                                     $display_options = $row->details->display ?? NULL;
@@ -81,40 +75,6 @@
                                         @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => ($edit ? 'edit' : 'add'), 'view' => ($edit ? 'edit' : 'add'), 'options' => $row->details])
                                     @elseif ($row->type == 'relationship')
                                         @include('voyager::formfields.relationship', ['options' => $row->details])
-                                    @elseif ($row->type == 'rich_text_box')
-                                        <textarea class="form-control richTextBox" name="{{ $row->field }}" id="richtext{{ $row->field }}">
-                                            {{ old($row->field, $dataTypeContent->{$row->field} ?? '') }}
-                                        </textarea>
-                                        @if($row->field == 'service_intro')
-                                        <br>
-                                            <a href="{{route('voyager.services.index')}}" class="custom btn btn-success btn-add-new">Click Here To Add Arogin Care  Features</a>
-                                            {{-- <button class="custom btn btn-success btn-add-new" onclick="window.location.href='/admin/services';">For Arogin Care  Features</button> --}}
-                                        @endif
-
-
-                                        @push('javascript')
-                                            <script>
-                                                $(document).ready(function() {
-                                                    var additionalConfig = {
-                                                        selector: 'textarea.richTextBox[name="{{ $row->field }}"]',
-                                                    }
-
-                                                    $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
-
-                                                    tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
-                                                });
-                                            </script>
-                                        @endpush
-                                    @elseif($row->field=='image_alts')
-
-                                    @elseif($row->type == "multiple_images")
-                                        @include('vendor.voyager.stories.multiple_images',[
-                                             'row' => $row,
-                                             'dataType' => $dataType,
-                                             'dataTypeContent' => $dataTypeContent,
-                                             'edit' =>$edit,
-
-                                        ])
                                     @else
                                         {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                                     @endif
@@ -240,7 +200,7 @@
                         && response.data.status == 200 ) {
 
                         toastr.success(response.data.message);
-                        $file.parent().parent().fadeOut(300, function() { $(this).remove(); })
+                        $file.parent().fadeOut(300, function() { $(this).remove(); })
                     } else {
                         toastr.error("Error removing file.");
                     }
