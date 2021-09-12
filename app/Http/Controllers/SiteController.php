@@ -24,6 +24,8 @@ use App\Faq;
 
 use App\Tip;
 
+use App\CareService;
+
 class SiteController extends Controller
 {
     public function index()
@@ -101,7 +103,8 @@ class SiteController extends Controller
 
     public function services($slug)
     {
-        return view('service');
+        $item = CareService::where('slug', $slug)->first();
+        return view('service', compact('item'));
     }
 }
 

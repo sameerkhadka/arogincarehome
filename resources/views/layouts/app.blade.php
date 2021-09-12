@@ -67,7 +67,7 @@
                                 <div class="sub-menu">
                                     <ul>
                                         @foreach($careservices as $careservice)
-                                            <li><a href="{{route('services', $careservice->title)}}">{{$careservice->title}}</a></li>
+                                            <li><a href="{{route('services', $careservice->slug)}}">{{$careservice->title}}</a></li>
                                         @endforeach
                                         {{-- <li><a href="stroke-care.html">Stroke Care & Rehabilitation</a></li>
                                         <li><a href="dementia-care.html">Dementia & Alzheimer’s Care</a></li>
@@ -148,7 +148,7 @@
                     <div class="quick-links">
                         <a href="{{route('contact')}}">Contact Us</a>
                         <a href="{{route('story')}}">Our Story</a>
-                        <a href="#">FAQ</a>
+                        <a href="{{route('main.faq')}}">FAQ</a>
                         <a href="{{route('blogs')}}">Blogs</a>
                         <a href="{{route('events')}}">Events</a>
                     </div>

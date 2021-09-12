@@ -9,7 +9,11 @@ $(window).on('scroll', function() {
 
 
 $(window).on('load', function() {
-    $('#myModal').modal('show');
+    setTimeout(function(){
+        $('#myModal').modal('show');
+      },3000);
+
+    
 });
 
 $('.banner-slider').owlCarousel({
@@ -79,6 +83,29 @@ $('.testimonial-slider').owlCarousel({
         },
         1200: {
             items: 1,
+        }
+    }
+});
+
+
+$('.care-image-silder').owlCarousel({
+    loop: true,
+    nav: false,
+    dots: true,
+    autoplay: true,
+    smartSpeed: 1500,
+    margin: 15,
+    
+    responsive: {
+        0: {
+            items: 1,
+        },
+        768: {
+            items: 2,
+        
+        },
+        1200: {
+            items: 3,
         }
     }
 });
