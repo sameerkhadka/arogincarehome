@@ -80,8 +80,9 @@
                                 </div>
                             </li>
                             
+                            @php $physiotherapy = \App\CareService::where('id','9')->first(); @endphp
                             <li class="nav-item">
-                                <a class="nav-link" href="physiotherapy.html">Physiotherapy Services</a>
+                                <a class="nav-link" href="{{route('services', $physiotherapy->slug)}}">Physiotherapy Services</a>
                             </li>
     
                             <li class="nav-item">
