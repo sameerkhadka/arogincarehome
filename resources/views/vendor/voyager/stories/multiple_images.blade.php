@@ -17,8 +17,8 @@
                 @if($edit)
                     <div class="col-5">
                         <div class="form-group" style="display: flex; flex-direction:column">
-                            <label class="control-label" style="font-weight: 900" for="alt{{ $loop->iteration }}">Alt</label>
-                            <input class="form-control" name="image_alts[{{ $loop->iteration-1 }}]" id="alt{{ $loop->iteration }}" value="{{ $image_alt }}">
+                            <label class="control-label" style="font-weight: 900" for="description{{ $loop->iteration }}">Alt</label>
+                            <input class="form-control" name="image_alts[{{ $loop->iteration-1 }}]" id="description{{ $loop->iteration }}" value="{{ $image_alt }}">
                         </div>
                         {{-- <div class="form-group" style="display: flex; flex-direction:column">
                            <label class="control-label" style="font-weight: 900" for="description{{ $loop->iteration }}">Caption</label>

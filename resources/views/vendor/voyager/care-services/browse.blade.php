@@ -2,20 +2,26 @@
 
 @section('page_title', __('voyager::generic.viewing').' '.$dataType->getTranslatedAttribute('display_name_plural'))
 
-@section('css')
-<style>
-    .btn-custom {
-        text-align: center;
-    }
-</style>
-@endsection
-
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
         </h1>
-
+        @can('add', app($dataType->model_name))
+            <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
+                <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
+            </a>
+        @endcan
+        @can('delete', app($dataType->model_name))
+            @include('voyager::partials.bulk-delete')
+        @endcan
+        @can('edit', app($dataType->model_name))
+            @if(!empty($dataType->order_column) && !empty($dataType->order_display_column))
+                <a href="{{ route('voyager.'.$dataType->slug.'.order') }}" class="btn btn-primary btn-add-new">
+                    <i class="voyager-list"></i> <span>{{ __('voyager::bread.order') }}</span>
+                </a>
+            @endif
+        @endcan
         @can('delete', app($dataType->model_name))
             @if($usesSoftDeletes)
                 <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('voyager::bread.soft_deletes_off') }}" data-off="{{ __('voyager::bread.soft_deletes_on') }}">
@@ -31,61 +37,6 @@
 @stop
 
 @section('content')
-    <div class="col-md-12">
-        <div class="panel panel-bordered">
-            <div class="panel-body">
-                @php $item = \App\Models\Page::where('id','2')->first(); @endphp
-                <form action="{{route('page.update',$item->id)}}" method="POST" enctype='multipart/form-data'>
-                    @csrf
-                    <div class="form-group col-md-12 ">
-                        <label class="control-label" for="name">Meta Key</label>
-                        <input type="text" class="form-control" name="meta_key" value="{{$item->meta_key}}">
-                    </div>
-                    <div class="form-group  col-md-12 ">
-                        <label class="control-label" for="name">Meta Description</label>
-                        <textarea class="form-control" name="meta_description" rows="5">{{$item->meta_description}}</textarea>
-                    </div>
-                        <div class="form-group col-md-9" >
-                            <label class="control-label" for="name">Banner Text</label>
-                            <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label" for="name">Banner Image</label>
-                            <img src="{{asset('storage/pages/September2021/' . $item->image)}}" style="width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
-                            <input type="file" name="image">
-                        </div>
-                    <div class="form-group col-md-12 ">
-                        <label class="control-label" for="name">Content Title</label>
-                        <input type="text" class="form-control" name="content_title" value="{{$item->content_title}}">
-                    </div>
-                    <div class="form-group  col-md-12 ">
-                        <label class="control-label" for="name">Content Heading</label>
-                        <textarea class="form-control richTextBox" name="content_heading" id="richtextcontent_heading">
-                                        {{ old('content_heading', $item->content_heading ?? '') }}
-                        </textarea>
-                        @push('javascript')
-                            <script>
-                                $(document).ready(function() {
-                                    var additionalConfig = {
-                                        selector: 'textarea.richTextBox[name="content_heading"]',
-                                    }
-                                    $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
-                                    tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
-                                });
-                            </script>
-                        @endpush
-                    </div>
-                    <div class="form-group  col-md-12 ">
-                        <label class="control-label" for="name">Content Description</label>
-                        <textarea class="form-control" name="content_description" rows="5">{{$item->content_description}}</textarea>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="submit" value="save" class="btn btn-success btn-add-new">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="page-content browse container-fluid">
         @include('voyager::alerts')
         <div class="row">
@@ -123,25 +74,6 @@
                                 @endif
                             </form>
                         @endif
-
-                        <div class="btn-custom">
-                            @can('add', app($dataType->model_name))
-                                <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
-                                    <i class="voyager-plus"></i> <span>Add New Events</span>
-                                </a>
-                            @endcan
-                            @can('delete', app($dataType->model_name))
-                                @include('voyager::partials.bulk-delete')
-                            @endcan
-                            @can('edit', app($dataType->model_name))
-                                @if(!empty($dataType->order_column) && !empty($dataType->order_display_column))
-                                    <a href="{{ route('voyager.'.$dataType->slug.'.order') }}" class="btn btn-primary btn-add-new">
-                                        <i class="voyager-list"></i> <span>{{ __('voyager::bread.order') }}</span>
-                                    </a>
-                                @endif
-                            @endcan
-                        </div>
-
                         <div class="table-responsive">
                             <table id="dataTable" class="table table-hover">
                                 <thead>
@@ -324,7 +256,7 @@
                                                     @include('voyager::bread.partials.actions', ['action' => $action])
                                                 @endif
                                             @endforeach
-                                            <a href="/admin/event/faqs?id={{$data->id}}" title="Faqs" class="btn btn-sm btn-success pull-right">
+                                            <a href="/admin/careservices/faqs?id={{$data->id}}" title="Faqs" class="btn btn-sm btn-success pull-right" style="margin-right: 4px;" >
                                                 <i class="voyager-question"></i> <span class="hidden-xs hidden-sm">Faq</span>
                                             </a>
                                         </td>
