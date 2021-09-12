@@ -72,7 +72,7 @@
                     <div class="partner-logo">
                         <ul>                           
                                 @foreach(json_decode($item->association_images) as $img)
-                                    <li><img src="{{Voyager::image($img)}}" alt="{{json_decode($item->image_alts)[$loop->iteration - 1]}}"></li>
+                                    <li><img src="{{Voyager::image($img)}}" alt="{{$item->image_alts ? json_decode($item->image_alts)[$loop->iteration - 1] : ''}}"></li>
                                 @endforeach
                             {{-- <li><img src="./images/company/grande.png" alt=""></li>
                             <li><img src="./images/company/medi.png" alt=""></li>

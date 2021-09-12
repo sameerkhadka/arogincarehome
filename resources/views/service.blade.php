@@ -141,7 +141,7 @@
                     <div class="item">
                         <div class="care-img-card">
                             <a href="{{Voyager::image($img)}}" data-lightbox="nursing-care">
-                                <img src="{{Voyager::image($img)}}" alt="">
+                                <img src="{{Voyager::image($img)}}" alt="{{$item->image_alts ? json_decode($item->image_alts)[$loop->iteration - 1] : ''}}">
                                 <img src="{{asset('images/modal.svg')}}" class="md-btn">
                             </a>                          
                         </div>
