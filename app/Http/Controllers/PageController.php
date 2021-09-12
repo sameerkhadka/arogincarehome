@@ -50,4 +50,15 @@ class PageController extends Controller
         $item = Page::where('id','3')->first();
         return view('admin.team', compact('item'));
     }
+
+    public function updateStatus(Request $request){
+        $model = '\\App\\Popup';
+        $popup = $model::find($request->id);
+        $popup->status = $request->val;
+        $popup->update();
+        $msg = $request->val ? 'checked' : 'unchecked';
+        return response([
+            "msg" => "Successfully {$msg}"
+        ],200);
+    }
 }

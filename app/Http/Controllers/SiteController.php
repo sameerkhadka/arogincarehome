@@ -26,6 +26,8 @@ use App\Tip;
 
 use App\CareService;
 
+use App\Popup;
+
 class SiteController extends Controller
 {
     public function index()
@@ -39,7 +41,8 @@ class SiteController extends Controller
         $blogs = Blog::orderBy('created_at', 'desc')->paginate(3);
         $features = Feature::orderBy('created_at', 'desc')->get();
         $faqs = Faq::where('type','homepage')->orderBy('order','asc')->get();
-        return view('index', compact('items','homepage','testimonials','services','story','events','blogs','features','faqs'));
+        $popups = Popup::where('status',1)->orderBy('order', 'desc')->get();
+        return view('index', compact('items','homepage','testimonials','services','story','events','blogs','features','faqs','popups'));
     }
 
     public function blog()

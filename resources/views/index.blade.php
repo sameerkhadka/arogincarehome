@@ -17,6 +17,23 @@
 @endsection
 
 @section('body')
+@foreach($popups as $img)
+<div class="modal" id="indexModal{{ $loop->iteration }}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">        
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src="{{ Voyager::image($img->image) }}" alt="{{$img->alt}}">
+        </div>  
+      </div>
+    </div>
+  </div>
+@endforeach
+
 <section class="banner">
         <div class="banner-slider owl-carousel">
             @foreach($items as $item)
@@ -752,20 +769,13 @@
 @endsection
 
 @section('popup')
-<div class="modal" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-        
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <img src="./images/arogin-popup.jpg" alt="">
-        </div>
-  
-      </div>
-    </div>
-  </div>
+<script>
+    @foreach($popups as $item)
+        $(window).on('load',function(){
+
+            $('#indexModal{{ $loop->iteration }}').modal('show');
+
+        });
+        @endforeach
+    </script>
 @endsection

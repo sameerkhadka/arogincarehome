@@ -53,6 +53,8 @@ Route::GET('/services/{slug}', [SiteController::class,'services'])->name('servic
 
 Route::post('/submit-form',[EmailController::class,'send'])->name('submit-form');
 
+Route::post('/update-data', [PageController::class,'updateStatus'])->name('update-data');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
@@ -65,6 +67,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::POST('faq/add', [FaqController::class,'add'])->name('add');
 
     Route::POST('update/{id}', [PageController::class,'update'])->name('page.update');
+
 });
 
 

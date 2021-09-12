@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('meta')
 <meta charset="UTF-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="{{$item->meta_key}}">
+<meta name="description" content="{{$item->meta_description}}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
 
@@ -207,7 +207,26 @@
                     </div>
 
                     <div class="accordion" id="accordionExample">
+                        @php $faqs = \App\Faq::where('type','careservices')->where('type_id',$item->id)->orderBy('order','asc')->get(); @endphp
+                        @foreach($faqs as $faq)
                         <div class="card">
+                            <div class="card-header" id="heading{{$loop->iteration}}">
+                           
+                                    <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapse{{$loop->iteration}}" aria-expanded="{{$loop->first ? "true" : "false"}}" aria-controls="collapse{{$loop->iteration}}">
+                                        <h3 class="faq-title">{{$faq->question}}</h3>
+                                    </button>
+                     
+                            </div>
+                      
+                            <div id="collapse{{$loop->iteration}}" class="collapse {{$loop->first ? "show" : ""}}" aria-labelledby="heading{{$loop->iteration}}" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    {!!$faq->answer!!}
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+
+                        {{-- <div class="card">
                             <div class="card-header" id="headingOne">
                            
                                     <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -276,7 +295,7 @@
                                 </p>
                               </div>
                             </div>
-                          </div>
+                          </div> --}}
 
                       
         
