@@ -45,7 +45,6 @@
                         <label class="control-label" for="name">Meta Description</label>
                         <textarea class="form-control" name="meta_description" rows="5">{{$item->meta_description}}</textarea>
                     </div>
-                    <div class="row">
                         <div class="form-group col-md-9" >
                             <label class="control-label" for="name">Banner Text</label>
                             <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}">
@@ -55,7 +54,6 @@
                             <img src="{{asset('storage/pages/September2021/' . $item->image)}}" style="width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                             <input type="file" name="image">
                         </div>
-                    </div>
                     <div class="form-group col-md-12 ">
                         <label class="control-label" for="name">Content Title</label>
                         <input type="text" class="form-control" name="content_title" value="{{$item->content_title}}">
@@ -80,8 +78,10 @@
                     <div class="form-group  col-md-12 ">
                         <label class="control-label" for="name">Content Description</label>
                         <textarea class="form-control" name="content_description" rows="5">{{$item->content_description}}</textarea>
-              </div>
-                    <input type="submit" value="save" class="btn btn-success btn-add-new">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="submit" value="save" class="btn btn-success btn-add-new">
+                    </div>
                 </form>
             </div>
         </div>
